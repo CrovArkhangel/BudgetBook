@@ -1,15 +1,16 @@
 import type { Route } from "../+types/root";
 import { TotalIncomeExpense } from "../features/totalIncomeExpense/components/totalIncomeExpense";
-import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
+import { PieChart, Pie, Cell, ResponsiveContainer, LabelList } from "recharts";
 
 const data = [
     { name: "Group A", value: 40000 },
     { name: "Group B", value: 10000 },
     { name: "Group C", value: 5000 },
     { name: "Group D", value: 2500 },
-    { name: "Group D", value: 10000 },
-    { name: "Group D", value: 50000 },
+    { name: "Group E", value: 10000 },
+    { name: "Group F", value: 50000 },
 ];
+const label = ["aaa", "bbb", "ccc", "ddd", "eee", "fff"];
 const COLORS = [
     "#CCFF99",
     "#99FFFF",
@@ -48,6 +49,7 @@ export default function ExpenseDetail() {
                             dataKey="value"
                             startAngle={90} // 時計回りの上から開始 (0度が3時なので、90度が12時)
                             endAngle={-270}
+                            label={{ fontSize: "15px", fill: "000000" }}
                         >
                             {data.map((entry, index) => (
                                 <Cell
@@ -78,10 +80,6 @@ export default function ExpenseDetail() {
                     <div className="flex space-x-2 items-center">
                         <div className="w-14 h-10 rounded bg-yellow-300" />
                         <p className="text-2xl">水道代</p>
-                    </div>
-                    <div className="flex space-x-2 items-center">
-                        <div className="w-14 h-10 rounded bg-pink-300" />
-                        <p className="text-2xl">その他</p>
                     </div>
                     <div className="flex space-x-2 items-center">
                         <div className="w-14 h-10 rounded bg-pink-300" />

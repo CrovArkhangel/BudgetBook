@@ -1,6 +1,7 @@
 import { BiDetail } from "react-icons/bi";
 import { FaPlus } from "react-icons/fa6";
 import { Link } from "react-router";
+import { Card } from "../../../components/ui/card";
 
 type Props = {
     //                   収入　 　　　支出
@@ -13,8 +14,8 @@ export const IncomeExpenseCard: React.FC<Props> = ({
     amount,
 }) => {
     return (
-        <div className="m-5">
-            <div className="flex items-center">
+        <Card className="mb-5 p-5">
+            <div className="flex items-center mb-5">
                 <p className="text-lg text-nowrap">
                     {incomeExpenseType == "Income" ? (
                         <>収入合計</>
@@ -26,15 +27,15 @@ export const IncomeExpenseCard: React.FC<Props> = ({
                     <FaPlus size={25} />
                 </div>
             </div>
-            <div className="flex justify-end w-full">
+            <div className="flex justify-end items-center gap-2 w-full">
                 <p className="text-4xl underline">
                     {amount}
                     <span className="text-xl">円</span>
                 </p>
                 <Link to={"/expense/detail"}>
-                    <BiDetail size={40} />
+                    <BiDetail size={30} />
                 </Link>
             </div>
-        </div>
+        </Card>
     );
 };

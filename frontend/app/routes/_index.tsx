@@ -48,6 +48,7 @@ export default function Home() {
                             dataKey="value"
                             startAngle={90} // 時計回りの上から開始 (0度が3時なので、90度が12時)
                             endAngle={-270}
+                            label={{ fontSize: "15px", fill: "000000" }}
                         >
                             {data.map((entry, index) => (
                                 <Cell
@@ -63,34 +64,27 @@ export default function Home() {
                         <div className="w-14 h-10 rounded bg-lime-300" />
                         <p className="text-2xl">家賃</p>
                     </div>
-                    <div className="flex space-x-2">
+                    <div className="flex space-x-2 items-center">
                         <div className="w-14 h-10 rounded bg-cyan-300" />
                         <p className="text-2xl">食費</p>
                     </div>
-                    <div className="flex space-x-2">
+                    <div className="flex space-x-2 items-center">
                         <div className="w-14 h-10 rounded bg-orange-300" />
                         <p className="text-2xl">電気代</p>
                     </div>
-                    <div className="flex space-x-2">
+                    <div className="flex space-x-2 items-center">
                         <div className="w-14 h-10 rounded bg-purple-300" />
                         <p className="text-2xl">ガス代</p>
                     </div>
-                    <div className="flex space-x-2">
-                        <div className="w-14 h-10 rounded bg-lime-300" />
-                        <p className="text-2xl">家賃</p>
+                    <div className="flex space-x-2 items-center">
+                        <div className="w-14 h-10 rounded bg-yellow-300" />
+                        <p className="text-2xl">水道代</p>
                     </div>
-                    <div className="flex space-x-2">
-                        <div className="w-14 h-10 rounded bg-cyan-300" />
-                        <p className="text-2xl">食費</p>
+                    <div className="flex space-x-2 items-center">
+                        <div className="w-14 h-10 rounded bg-pink-300" />
+                        <p className="text-2xl">その他</p>
                     </div>
-                    <div className="flex space-x-2">
-                        <div className="w-14 h-10 rounded bg-orange-300" />
-                        <p className="text-2xl">電気代</p>
-                    </div>
-                    <div className="flex space-x-2">
-                        <div className="w-14 h-10 rounded bg-purple-300" />
-                        <p className="text-2xl">ガス代</p>
-                    </div>
+                    <div></div>
                 </div>
             </div>
         </div>
