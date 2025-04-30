@@ -9,7 +9,7 @@ export const MainLayout: React.FC<Props> = ({ children }) => {
     return (
         <div className="grid grid-rows-9 h-screen">
             <Header />
-            <div className="row-span-5">{children}</div>
+            <div className="row-span-8">{children}</div>
         </div>
     );
 };
