@@ -2,6 +2,7 @@ import { BiDetail } from "react-icons/bi";
 import { FaPlus } from "react-icons/fa6";
 import { Link } from "react-router";
 import { Card } from "../../../components/ui/card";
+import { AddDialog } from "./addDialog";
 
 type Props = {
     //                   収入　 　　　支出
@@ -24,7 +25,7 @@ export const IncomeExpenseCard: React.FC<Props> = ({
                     )}
                 </p>
                 <div className="flex justify-end w-full">
-                    <FaPlus size={25} />
+                    <AddDialog />
                 </div>
             </div>
             <div className="flex justify-end items-center gap-2 w-full">
