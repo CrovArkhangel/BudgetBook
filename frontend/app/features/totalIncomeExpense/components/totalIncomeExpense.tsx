@@ -1,10 +1,18 @@
+import type { IncomeExpenseSummary } from "~/routes/_index";
 import { IncomeExpenseCard } from "./incomeExpenseCard";
 
-export const TotalIncomeExpense: React.FC = () => {
+type Props = {
+    incomeExpenseSummary: IncomeExpenseSummary[];
+};
+
+export const TotalIncomeExpense: React.FC<Props> = ({
+    incomeExpenseSummary,
+}) => {
     return (
         <div className="w-5/6">
-            <IncomeExpenseCard incomeExpenseType="Income" amount={300000} />
-            <IncomeExpenseCard incomeExpenseType="Expense" amount={200000} />
+            {incomeExpenseSummary.map((summary) => (
+                <IncomeExpenseCard summary={summary} />
+            ))}
         </div>
     );
 };

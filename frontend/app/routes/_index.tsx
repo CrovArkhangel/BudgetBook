@@ -9,11 +9,38 @@ export function meta({}: Route.MetaArgs) {
     ];
 }
 
+export type IncomeExpense = {
+    date: Date;
+    //      収入　 　　　支出
+    type: "Income" | "Expense";
+    category?: String;
+    amount: number;
+    memo: String;
+};
+
+export type IncomeExpenseSummary = {
+    //      収入　 　　　支出
+    type: "Income" | "Expense";
+    totalamount: number;
+};
+
 export default function Home() {
+    const incomeExpenseSummary: IncomeExpenseSummary[] = [
+        {
+            type: "Income",
+            totalamount: 300000,
+        },
+        {
+            type: "Expense",
+            totalamount: 200000,
+        },
+    ];
     return (
         <div className="grid grid-cols-3 h-full">
             <div className="flex items-center justify-center">
-                <TotalIncomeExpense />
+                <TotalIncomeExpense
+                    incomeExpenseSummary={incomeExpenseSummary}
+                />
             </div>
             <div className="col-span-2">
                 <ExpensePieChart />

@@ -19,6 +19,8 @@ import {
     SelectValue,
 } from "~/components/ui/select";
 
+type Props = {};
+
 export const AddDialog: React.FC = () => {
     return (
         <Dialog>
