@@ -1,6 +1,9 @@
 import { ExpensePieChart } from "~/features/totalIncomeExpense/components/expensePieChart";
 import type { Route } from "../+types/root";
 import { TotalIncomeExpense } from "../features/totalIncomeExpense/components/totalIncomeExpense";
+import { useEffect, useState } from "react";
+import { graphqlClient } from "../lib/graphql-client";
+import { GET_USERS } from "../graphql/queries";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -8,6 +11,11 @@ export function meta({}: Route.MetaArgs) {
         { name: "description", content: "収支の概要を閲覧できます" },
     ];
 }
+
+type User = {
+    id: string;
+    name: string;
+};
 
 export type IncomeExpense = {
     date: Date;
@@ -35,8 +43,23 @@ export default function Home() {
             totalamount: 200000,
         },
     ];
+    const [users, setUsers] = useState<User[]>([]);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        graphqlClient
+            .request<{ users: User[] }>(GET_USERS)
+            .then((data) => setUsers(data.users))
+            .catch((err) => setError(err.message));
+    }, []);
     return (
         <div className="grid grid-cols-3 h-full">
+            <p>{error}</p>
+            <ul>
+                {users.map((user) => (
+                    <li key={user.id}>{user.name}</li>
+                ))}
+            </ul>
             <div className="flex items-center justify-center">
                 <TotalIncomeExpense
                     incomeExpenseSummary={incomeExpenseSummary}

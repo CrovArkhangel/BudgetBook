@@ -10,8 +10,8 @@ export const TotalIncomeExpense: React.FC<Props> = ({
 }) => {
     return (
         <div className="w-5/6">
-            {incomeExpenseSummary.map((summary) => (
-                <IncomeExpenseCard summary={summary} />
+            {incomeExpenseSummary.map((summary, index) => (
+                <IncomeExpenseCard key={index} summary={summary} />
             ))}
         </div>
     );
